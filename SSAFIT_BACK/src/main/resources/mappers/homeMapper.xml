@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper.xml은 Dao의 구현제(implement)이므로 -->
+<!-- mapper의 namespace에는 반드시 dao의 경로를 명시해야 한다. -->
+<mapper namespace="com.ssafit.board.model.dao.HomeDao">
+	<resultMap type="Video" id="homeMap">
+		<result column="video_id" property="videoId" />
+	</resultMap>
+
+	<select id="selectByHits" resultMap="homeMap">
+		SELECT *
+		FROM video
+		ORDER BY viewcnt desc
+		LIMIT 5
+	</select>
+</mapper>

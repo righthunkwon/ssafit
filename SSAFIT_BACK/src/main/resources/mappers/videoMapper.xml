@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper.xml은 Dao의 구현제(implement)이므로 -->
+<!-- mapper의 namespace에는 반드시 dao의 경로를 명시해야 한다. -->
+<mapper namespace="com.ssafit.board.model.dao.VideoDao">
+	<resultMap type="Video" id="videoMap">
+		<result column="video_id" property="videoId" />
+	</resultMap>
+
+	<select id="selectAll" resultMap="videoMap">
+		SELECT *
+		FROM video
+	</select>
+
+	<select id="selectOne" resultMap="videoMap">
+		SELECT *
+		FROM video
+		WHERE
+		video_id = #{videoId}
+	</select>
+
+<!--  
+	<insert id="insert" parameterType="Video">
+		INSERT INTO video (title,
+		content, part, creator, link)
+		VALUES (#{title}, #{content}, #{part},
+		#{creator}, #{link})
+	</insert>
+
+	<delete id="deleteVideo" parameterType="int">
+		DELETE FROM video
+		WHERE
+		video_id = #{videoId}
+	</delete>
+-->
+
+	<update id="updateViewCnt" parameterType="int">
+		UPDATE video
+		SET viewcnt
+		= viewcnt+1
+		WHERE video_id = #{videoId}
+	</update>
+
+	<select id="selectByHits" resultMap="videoMap">
+		SELECT *
+		FROM video
+		ORDER BY
+		viewcnt desc
+	</select>
+
+	<select id="searchByCondition" resultMap="videoMap"
+		parameterType="SearchCondition">
+		SELECT *
+		FROM video
+		<!-- 검색 조건 (동적쿼리) -->
+		<if test="key != 'none'">
+			WHERE ${key} LIKE concat('%', #{word}, '%')
+		</if>
+	</select>
+</mapper>

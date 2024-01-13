@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.service.HomeService"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.service.LikeService"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.service.VideoLikeService"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.dto.VideoLike"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.service.ChatService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.ssafit.board.model.service.VideoService"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper.xml은 Dao의 구현제(implement)이므로 -->
+<!-- mapper의 namespace에는 반드시 dao의 경로를 명시해야 한다. -->
+<mapper namespace="com.ssafit.board.model.dao.VideoLikeDao">
+	<resultMap type="VideoLike" id="videoLikeMap">
+		<result column="video_like_id" property="videoLikeId" />
+		<result column="video_id" property="videoId" />
+		<result column="user_id" property="userId" />
+	</resultMap>
+	
+	<select id="selectLike" parameterType="VideoLike" resultMap="videoLikeMap">
+		SELECT *
+		FROM video_like
+		WHERE user_id = #{userId} AND video_id = #{videoId}
+	</select>
+	
+	<select id="selectAllLike" parameterType="VideoLike" resultMap="videoLikeMap">
+		SELECT *
+		FROM video_like
+		WHERE video_id = #{videoId}
+	</select>
+	
+	<insert id="insertLike" parameterType="VideoLike">
+		INSERT INTO video_like (user_id, video_id)
+		VALUES (#{userId}, #{videoId})
+	</insert>
+
+	<delete id="deleteLike" parameterType="VideoLike">
+		DELETE 
+		FROM video_like
+		WHERE user_id = #{userId} AND video_id = #{videoId}
+	</delete>
+
+</mapper>
